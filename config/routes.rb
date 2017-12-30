@@ -1,4 +1,8 @@
 Fibo2048::Application.routes.draw do
+  resources :users
+  resources :sessions
+  get "signin" => "sessions#new", as: :login
+  get "signout" => "sessions#destroy", as: :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
