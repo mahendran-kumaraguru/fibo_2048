@@ -1,4 +1,5 @@
 Fibo2048::Application.routes.draw do
+  get "profile/show"
   get "leaderboard/show"
   resources :users
   resources :sessions
