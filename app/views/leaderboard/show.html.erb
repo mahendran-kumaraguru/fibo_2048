@@ -1,0 +1,10 @@
+
+<center>
+<h3> LeaderBoard </h3>
+<table width="50%" border="1">
+	<thead><th>Email</th><th>High Score</th></thead>
+	<% @leaders.each do |leader| %>
+		<tr><td><%= leader.email %></td><td align="center"><%= leader.high_score %></td></tr>
+	<% end %>
+</table>
+</center>

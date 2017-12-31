@@ -1,4 +1,5 @@
 Fibo2048::Application.routes.draw do
+  get "leaderboard/show"
   resources :users
   resources :sessions
   get "signin" => "sessions#new", as: :login
