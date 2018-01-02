@@ -1,7 +1,9 @@
 Fibo2048::Application.routes.draw do
   get "profile/show"
   get "leaderboard/show"
+  get "my_games" => "users#show_games", as: :my_games
   resources :users
+  resources :games
   resources :sessions
   get "signin" => "sessions#new", as: :login
   get "signout" => "sessions#destroy", as: :logout

@@ -1,0 +1,49 @@
+
+<center>
+<h3> Play Now! </h3>
+<table border="3" style="table-layout: fixed" width="<%= @game.grid * 50%>" height="<%= @game.grid * 50%>">
+	<% @game.data.each do |r| %>
+		<tr>
+			<% r.each do |v| %>
+				<td align="center" onkeydown="hi()"><% if v!=0 %><%= v %><% end %></td>
+			<% end %>
+		</tr>
+	<% end %>
+	<script>
+		function get_ready() {
+			alert("Game Started! Use Arrow Keys to Control!!");
+			window.addEventListener('keydown', hi);
+			document.getElementById("start_button").hidden = true;
+		}
+		function hi(e) {
+
+			e = e || window.event;
+
+			if (e.keyCode == '38') {
+				// up arrow
+				alert("up arrow");
+			}
+			else if (e.keyCode == '40') {
+				// down arrow
+				alert("down arrow");
+			}
+			else if (e.keyCode == '37') {
+				// left arrow
+				alert("left arrow");
+			}
+			else if (e.keyCode == '39') {
+				// right arrow
+				alert("right arrow");
+			}
+
+		}
+	</script>
+</table>
+<br/>
+<table style="table-layout: fixed">
+	<tr><td colspan="3" align="center">Up</td></tr>
+	<tr><td align="center">Left</td><td align="center" width="35"><button id="start_button" onclick="get_ready()">Start!</button></td><td align="center">Right</td></tr>
+	<tr><td colspan="3" align="center">Down</td></tr>
+</table>
+<br/>
+</center>

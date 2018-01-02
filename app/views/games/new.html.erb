@@ -1,0 +1,9 @@
+
+<center>
+<h3> New Game </h3>
+<%= form_for @game do |f| %>
+	<%= f.label :grid%><br/>
+	<%= f.number_field :grid%>
+	<br/><br/><%= f.submit "Start Game" %>
+<% end %>
+</center>

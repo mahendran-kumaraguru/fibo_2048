@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231081843) do
+ActiveRecord::Schema.define(version: 20171231090539) do
+
+  create_table "games", force: true do |t|
+    t.integer  "grid",        default: 5
+    t.text     "data",        default: "[]"
+    t.integer  "score",       default: 0
+    t.integer  "free_size",   default: -1
+    t.boolean  "is_complete", default: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["user_id"], name: "index_games_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

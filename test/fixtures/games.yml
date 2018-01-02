@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grid: 1
+  data: MyText
+  score: 1
+  free_size: 1
+  is_complete: false
+  user_id: 
+
+two:
+  grid: 1
+  data: MyText
+  score: 1
+  free_size: 1
+  is_complete: false
+  user_id: 

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   	user = User.authenticate(params[:email], params[:password])
   	if user
   		session[:user_id] = user.id
-  		redirect_to root_path, :notice => "Logged in Successfully"
+  		redirect_to new_game_path, :notice => "Logged in Successfully"
   	else
   		redirect_to :back, :notice => "Email or Password is incorrect"
   	end
