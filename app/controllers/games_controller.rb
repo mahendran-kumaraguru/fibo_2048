@@ -1,4 +1,15 @@
 class GamesController < ApplicationController
+  before_action :authenticate_user
+
+  def authenticate_user
+    @current_user = User.find(session[:user_id])
+    @game = Game.find(params[:id])
+    @game_user = @game.user
+    if not @game_user == @current_user
+      redirect_to my_games_path, :notice => "Unauthorized!"
+    end
+  end
+
   def new
   	@game = Game.new
   end
