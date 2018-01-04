@@ -1,15 +1,23 @@
 
 <center>
 <h3> My Games </h3>
-<table width="50%" border="1">
-	<thead><th>Grid</th><th>Score</th><th>Last Played</th><th>Play Now</th></thead>
-	<% @games.each do |game| %>
-		<tr>
-			<td><%= game.grid %></td>
-			<td align="center"><%= game.score %></td>
-			<td><%= game.updated_at %></td>
-			<td><%= link_to "Continue", game_path(game) %></td>
-		</tr>
-	<% end %>
-</table>
+<% if @games.count == 0 %>
+	<br/><br/><h4>Hey! Start your first game by clicking <b>'New Game'</b> tab!</h4>
+<% else %>
+	<table width="50%" border="1">
+		<thead><th>Grid</th><th>Score</th><th>Last Played</th><th>Play Now</th></thead>
+		<% @games.each do |game| %>
+			<tr>
+				<td><%= game.grid %></td>
+				<td align="center"><%= game.score %></td>
+				<td><%= game.updated_at %></td>
+				<% if not game.is_complete %>
+					<td><%= link_to "Continue", game_path(game) %></td>
+				<% else %>
+					<td>Finished</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
 </center>

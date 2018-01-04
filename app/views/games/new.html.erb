@@ -3,7 +3,7 @@
 <h3> New Game </h3>
 <%= form_for @game do |f| %>
 	<%= f.label :grid%><br/>
-	<%= f.number_field :grid%>
+	<%= f.number_field :grid, :required => true%>
 	<br/><br/><%= f.submit "Start Game" %>
 <% end %>
 </center>

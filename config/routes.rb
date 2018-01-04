@@ -2,6 +2,7 @@ Fibo2048::Application.routes.draw do
   get "profile/show"
   get "leaderboard/show"
   get "my_games" => "users#show_games", as: :my_games
+  post "game/:id/save" => "games#save_game", as: :save_game
   resources :users
   resources :games
   resources :sessions
