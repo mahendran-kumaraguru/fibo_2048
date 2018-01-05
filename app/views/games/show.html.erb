@@ -49,6 +49,7 @@
 					if(data[i][j]==0)
 						free_size++;
 			document.getElementById("start_button").hidden = true;
+			document.getElementById("navTable").hidden = false;
 			document.getElementById("save_button").hidden = false;
 		}
 		function hi(e) {
@@ -242,12 +243,12 @@
 	</script>
 </table>
 <br/>
-<!-- <table style="table-layout: fixed">
-	<tr><td colspan="3" align="center">Up</td></tr>
-	<tr><td align="center">Left</td><td align="center" width="35"></td><td align="center">Right</td></tr>
-	<tr><td colspan="3" align="center">Down</td></tr>
+<table style="table-layout: fixed" id="navTable" hidden="true">
+	<tr><td colspan="3" align="center"><button onclick="move(-1, 0)">Up</button></td></tr>
+	<tr><td align="center"><button onclick="move(0, -1)">Left</button></td><td align="center" width="35"></td><td align="center"><button onclick="move(0, 1)">Right</button></td></tr>
+	<tr><td colspan="3" align="center"><button onclick="move(1, 0)">Down</button></td></tr>
 </table>
-<br/><br/> -->
+<br/><br/>
 <button id="start_button" onclick="get_ready()">Start!</button>
 <button id="save_button" onclick="save_game()" hidden="true">Save and Exit!</button>
 </center>

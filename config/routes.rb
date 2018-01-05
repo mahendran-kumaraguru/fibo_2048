@@ -3,10 +3,12 @@ Fibo2048::Application.routes.draw do
   get "leaderboard/show"
   get "my_games" => "users#show_games", as: :my_games
   post "game/:id/save" => "games#save_game", as: :save_game
+  get "register" => "users#new", as: :register
   resources :users
   resources :games
   resources :sessions
   get "signin" => "sessions#new", as: :login
+
   get "signout" => "sessions#destroy", as: :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
