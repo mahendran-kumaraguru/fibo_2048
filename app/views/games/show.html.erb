@@ -1,7 +1,7 @@
 
 <center>
 <h3> Play Now! </h3>
-<table border="3"  onkeydown="hi()" style="table-layout: fixed" id="game_table" width="<%= @game.grid * 50%>" height="<%= @game.grid * 50%>">
+<table border="3" style="table-layout: fixed" id="game_table" width="<%= @game.grid * 50%>" height="<%= @game.grid * 50%>">
 	<% @game.data.each do |r| %>
 		<tr>
 			<% r.each do |v| %>
@@ -18,9 +18,10 @@
 		var fibo_series=[0, 1, 1, 2, 3, 5];
 		function get_ready() {
 			alert("Game Started! Use Arrow Keys to Control!!");
-			window.addEventListener('keydown', hi);
+			window.addEventListener('keydown', keyControl);
 			document.getElementById("start_button").hidden = true;
 			var game_table= document.getElementById("game_table");
+			addSaveFunctionToTabs();
 			var target = game_table;
 			if(target) {
 				var rows = target.getElementsByTagName("TR");
@@ -52,7 +53,7 @@
 			document.getElementById("navTable").hidden = false;
 			document.getElementById("save_button").hidden = false;
 		}
-		function hi(e) {
+		function keyControl(e) {
 
 			e = e || window.event;
 
@@ -74,6 +75,12 @@
 			}
 			console.log(data);
 
+		}
+		function addSaveFunctionToTabs() {
+			var tabs = document.getElementsByTagName("li");
+			for(var i=0; i<tabs.length; i++) {
+				tabs[i].addEventListener("click", function() {save_game();});
+			}
 		}
 		function getOpposite(num) {
 			if(num == 0)
@@ -231,6 +238,7 @@
 			setRandom(getOpposite(r), getOpposite(c));
 		}
 		function save_game() {
+			window.removeEventListener('keydown', keyControl);
 			$.ajax({
 			url: "/game/"+document.baseURI.substring(document.baseURI.lastIndexOf("/")+1, document.baseURI.length)+"/save",
 			type: "POST",
